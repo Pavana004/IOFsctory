@@ -4,20 +4,20 @@ var water = function (arr) {
 
     let max = 0
     for (let i = 0; i < arr.length; i++) {
-        max = Math.max(height[i], max)
+        max = Math.max(arr[i], max)
         maxFromLeft[i] = max
     }
 
     max = 0
     for (let i = arr.length - 1; i > -1; i--) {
-        max = Math.max(height[i], max)
+        max = Math.max(arr[i], max)
         maxFromRight[i] = max
     }
 
     let maxWater = 0
     for (let i = 0; i < arr.length; i++) {
         const boundary = Math.min(maxFromLeft[i], maxFromRight[i])
-        maxWater += boundary - height[i]
+        maxWater += boundary - arr[i]
     }
 
     return maxWater
